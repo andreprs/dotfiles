@@ -34,7 +34,6 @@ packages=(
     "libgdbm-dev"
     "libns"
     "libnss3-dev"
-    "s3-dev"
     "libssl-dev"
     "libreadline-dev"
     "libffi-dev"
@@ -59,7 +58,6 @@ packages=(
     "firmware-iwlwifi"
     "ffmepeg"
     "samba"
-    "wicd-curses"
     "network-manager-gnome"
     "xfce4-power-manager"
     "aspell"
@@ -82,6 +80,7 @@ packages=(
     "p7zip-full"
     "rar"
     "unrar"
+    "arandr"
     "papirus-icon-theme"
     "arc-theme"
     "kitty"
@@ -89,6 +88,8 @@ packages=(
     "rofi"
     "ranger"
     "nautilus"
+    "zathura"
+    "vim"
 )
 # -----------------------------------------------------------------------------
 #
@@ -141,6 +142,25 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 # SpaceShip theme
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+# -----------------------------------------------------------------------------
+#
+# Alguns módulos python
+python_modules=(
+    "pillow"
+    "requests"
+    "flake8"
+    "PyPDF2"
+    "PyQt5"
+    "mypy"
+    "autopep8"
+    "selenium"
+    "numpy"
+    "matplotlib"
+)
+for module in "${python_modules[@]}"
+do
+    python3.10 -m pip install "$module"
+done
 # -----------------------------------------------------------------------------
 #
 # Download e instalação de pacotes externos
