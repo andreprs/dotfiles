@@ -32,7 +32,6 @@ packages=(
     "zlib1g-dev"
     "libncurses5-dev"
     "libgdbm-dev"
-    "libns"
     "libnss3-dev"
     "libssl-dev"
     "libreadline-dev"
@@ -56,12 +55,12 @@ packages=(
     "firmware-atheros"
     "firmware-realtek"
     "firmware-iwlwifi"
-    "ffmepeg"
+    "ffmpeg"
     "samba"
     "network-manager-gnome"
     "xfce4-power-manager"
     "aspell"
-    "alpell-pt-br"
+    "aspell-pt-br"
     "neofetch"
     "htop"
     "inxi"
@@ -73,6 +72,7 @@ packages=(
     "zenity"
     "yad"
     "blueman"
+    "dunst"
     "gparted"
     "youtube-dl"
     "ttf-mscorefonts-installer"
@@ -184,6 +184,12 @@ cd "$HOME" || echo "Erro inesperado"
 curl -sS "$spotify_url"  | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt-get update && apt-get install spotify-client -y
+# -----------------------------------------------------------------------------
+#
+# Instalando Steam
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install steam
 # -----------------------------------------------------------------------------
 #
 # Copiando arquivos .config e outros
