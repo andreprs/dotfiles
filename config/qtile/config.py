@@ -1,6 +1,5 @@
 import os
 import subprocess
-from tkinter.ttk import _Padding
 from typing import List
 from libqtile import bar, layout, widget
 from libqtile import hook
@@ -65,13 +64,11 @@ keys = [
 groups = [
     Group(i)
     for i in [
-        "   ",
-        "   ",
-        "   ",
-        "   ",
-        "   ",
-        "   ",
-        "   ",
+        "  ",
+        "  ",
+        "   ",
+        "   ",
+        "   ",
     ]
 ]
 
@@ -147,16 +144,53 @@ screens = [
                 widget.TextBox(
                     text='',
                     font='UbuntuMono Nerd Font',
+                    foreground='#282a2e',
                     fontsize=57,
                     padding=0,
                 ),
                 
-                widget.Systray(),
+                widget.TextBox(
+                    text=' ',
+                    font='UbuntuMono Nerd Font',
+                    foreground='#f7768e',
+                    fontsize=14,
+                ),
                 
-                widget.Clock(format='  %A, %d-%m-%Y   %H:%M'),
-            ]
-        )
-    )
+                widget.OpenWeather(
+                    language='pt_br',
+                    app_key='3585631a5a665198e266fb87955cd179',
+                    location='Curitiba',
+                    update_interval=600,
+                    format='{location_city}: {main_temp} °{units_temperature}',
+                ),
+                
+                widget.Systray(
+                    icon_size=20,
+                    padding=6,
+                    ),
+                
+                widget.TextBox(
+                    text=' ',
+                    font='UbuntuMono Nerd Font',
+                    foreground='#f7768e',
+                    fontsize=14,
+                ),
+                
+                widget.Clock(format='%A, %d-%m-%Y'),
+                
+                widget.TextBox(
+                    text=' ',
+                    font='UbuntuMono Nerd Font',
+                    foreground='#f7768e',
+                    fontsize=14,
+                ),
+                
+                widget.Clock(format='%H:%M'),
+            ],
+            25,
+            background='#282a2e',
+        ),
+    ),
 ]
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
