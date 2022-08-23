@@ -10,9 +10,10 @@ from libqtile.utils import guess_terminal
 # -----------------------------------------------------------------------------
 
 # Variables
-mod = "mod4"
+mod = "mod1"
 terminal = "kitty"
 browser = "google-chrome"
+spotify = "spotify"
 # -----------------------------------------------------------------------------
 
 # Keybindings
@@ -24,18 +25,32 @@ keys = [
     Key([mod], "j", lazy.layout.down()),
     Key([mod], "k", lazy.layout.up()),
     Key([mod], "p", lazy.layout.next()),
+    
+    Key([mod], "Left", lazy.layout.left()),
+    Key([mod], "Right", lazy.layout.right()),
+    Key([mod], "Down", lazy.layout.down()),
+    Key([mod], "Up", lazy.layout.up()),
+
     # Move windows
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    
     # Resize windows
     Key([mod, "control"], "h", lazy.layout.grow_left()),
     Key([mod, "control"], "l", lazy.layout.grow_right()),
     Key([mod, "control"], "j", lazy.layout.grow_down()),
     Key([mod, "control"], "k", lazy.layout.grow_up()),
+    
+    Key([mod, "control"], "Left", lazy.layout.grow_left()),
+    Key([mod, "control"], "Right", lazy.layout.grow_right()),
+    Key([mod, "control"], "Down", lazy.layout.grow_down()),
+    Key([mod, "control"], "Up", lazy.layout.grow_up()),
+    
     # Get windows original size
     Key([mod], "n", lazy.layout.normalize()),
+    
     # Toggle between split and unsplit sides of stack
     Key(
         [mod, "shift"],
@@ -44,18 +59,31 @@ keys = [
     ),
     # Browser
     Key([mod], "b", lazy.spawn(browser)),
+    
     # Terminal
     Key([mod], "Return", lazy.spawn(terminal)),
+    
     # Launcher
     Key([mod], "space", lazy.spawn("rofi -show drun")),
+    
+    # File Browser
+    Key([mod], "f", lazy.spawn(f"{terminal} ranger")),
+    
+    # Spotify 
+    Key([mod], "s", lazy.spawn(spotify)),
+    
     # Toogle layout
     Key([mod], "Tab", lazy.next_layout()),
+    
     # Kill window
     Key([mod], "x", lazy.window.kill()),
+    
     # Reload Qtile
     Key([mod, "shift"], "r", lazy.reload_config()),
+    
     # Exit Qtile
     Key([mod, "shift"], "e", lazy.shutdown()),
+    
 ]
 # -----------------------------------------------------------------------------
 
@@ -88,17 +116,32 @@ for i, group in enumerate(groups):
 
 layouts = [
     layout.MonadTall(
-        border_focus="#414868", border_normal="#282a2e", border_width=1, margin=8
+        border_focus="#414868", 
+        border_normal="#282a2e", 
+        border_width=1, 
+        margin=8,
     ),
     layout.Max(),
+    
     layout.Bsp(
-        border_focus="#414868", border_normal="282a2e", border_width=", margin=8"
+        border_focus="#414868", 
+        border_normal="282a2e", 
+        border_width=1, 
+        margin=8
     ),
+    
     layout.MonaWide(
-        border_focus="414868", border_normal="282a2e", border_width=1, margin=8
+        border_focus="414868", 
+        border_normal="282a2e", 
+        border_width=1, 
+        margin=8
     ),
+    
     layout.RatioTile(
-        border_focus="414868", border_normal="282a2e", border_width=1, margin=8
+        border_focus="414868", 
+        border_normal="282a2e", 
+        border_width=1, 
+        margin=8
     ),
 ]
 # -----------------------------------------------------------------------------
@@ -118,9 +161,6 @@ screens = [
             [
                 widget.Sep(linewidth=0,
                            padding=6),
-                
-                widget.Image(filename="~/.config/qtile/7k-icon.png",
-                             scale="False"),
                 
                 widget.Sep(linewidth=0, padding=6),
                 
