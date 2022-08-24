@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# -----------------------------------------------------------------------------
+##                             AUTOSTART SECTION
+# -----------------------------------------------------------------------------
+
+# Polkit
+#/usr/lib/polkit-gnome-authentication-agent-1 &
+# Autokill
+killall sxhkd; sxhkd &
+#killall dunst; dunst &
+# Power manager
+#xfce4-power-manager &
+# Compositor
+
+# Wallpaper
+#nitrogen --restore &
+# Bar
+#"$HOME"/.config/polybar/launch.sh &
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+##                               CONFIG SECTION
+# -----------------------------------------------------------------------------
+bspc monitor -d 1 2 3 4 5
+
+alias bc='bspc config'
+alias br='bspc rule'
+
+bc border_width 1
+bc window_gap 6
+bc border_radius 0
+bc focused_border_color "#f7768e"
+bc normal_border_color "#353b45"
+
+bc borderless_monocle true
+bc gapless_monocle false
+bc focus_follows_pointer true
+bc paddingless_monocle true
+bc single_monocle false
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+##                               RULES SECTION
+# -----------------------------------------------------------------------------
+br -a Discord desktop='^4' follow=on focus=on
+br -a Spotify desktop='^5' follow=on focus=on
