@@ -5,30 +5,31 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-dir="$HOME"/.config/polybar/scripts/rofi
+dir="~/.config/polybar/scripts/rofi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
-rofi_command="rofi -theme $dir/powermenu.rasi"
+rofi_command="rofi -no-config -theme $dir/powermenu.rasi"
 
 # Options
-shutdown="⏻ Shutdown"
-reboot="勒 Restart"
-lock=" Lock"
-suspend="鈴 Sleep"
-logout=" Logout"
+shutdown=" Shutdown"
+reboot=" Restart"
+lock=" Lock"
+suspend=" Sleep"
+logout=" Logout"
 
 # Confirmation
 confirm_exit() {
 	rofi -dmenu\
+        -no-config\
 		-i\
 		-no-fixed-num-lines\
 		-p "Are You Sure? : "\
-		-theme "$dir"/confirm.rasi
+		-theme $dir/confirm.rasi
 }
 
 # Message
 msg() {
-	rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
+	rofi -no-config -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
 }
 
 # Variable passed to rofi
@@ -36,7 +37,7 @@ options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
 case $chosen in
-    "$shutdown")
+    $shutdown)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			systemctl poweroff
@@ -46,7 +47,7 @@ case $chosen in
 			msg
         fi
         ;;
-    "$reboot")
+    $reboot)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			systemctl reboot
@@ -56,14 +57,14 @@ case $chosen in
 			msg
         fi
         ;;
-    "$lock")
+    $lock)
 		if [[ -f /usr/bin/i3lock ]]; then
 			i3lock
 		elif [[ -f /usr/bin/betterlockscreen ]]; then
 			betterlockscreen -l
 		fi
         ;;
-    "$suspend")
+    $suspend)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			mpc -q pause
@@ -75,7 +76,7 @@ case $chosen in
 			msg
         fi
         ;;
-    "$logout")
+    $logout)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then

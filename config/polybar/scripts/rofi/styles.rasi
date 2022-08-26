@@ -36,7 +36,7 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						0px 0px 0px 10px;
+	padding: 						0px 0px 0px 5px;
 	background-color: 				@bga;
 	text-color: 					@fg;
 }
@@ -46,7 +46,7 @@ textbox-prompt-colon {
 	background-color: 				@bga;
 	text-color: 					@ac;
 	expand: false;
-	str: "";
+	str: "";
 	font:							"feather 12";
 }
 
@@ -57,12 +57,12 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search...";
-	padding: 						0px 0px 0px 5px;
+	padding: 						0px 0px 0px 10px;
     blink:                          true;
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
+	children: 						[ textbox-prompt-colon, entry ];
     background-color:               @bga;
     text-color:                     @fg;
     expand:                         false;
@@ -103,11 +103,15 @@ element {
 }
 
 element-icon {
+    background-color:               transparent;
+    text-color:               		inherit;
     size:                           24px;
     border:                         0px;
 }
 
 element-text {
+    background-color:               transparent;
+    text-color:               		inherit;
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
