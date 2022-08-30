@@ -5,18 +5,19 @@
 # -----------------------------------------------------------------------------
 
 # Polkit
-#/usr/lib/polkit-gnome-authentication-agent-1 &
-# Autokill
-killall sxhkd; sxhkd &
-#killall dunst; dunst &
+/usr/lib/polkit-gnome-authentication-agent-1 &
+# Sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+# Dunst
+killall dunst; dunst &
 # Power manager
-#xfce4-power-manager &
+xfce4-power-manager &
 # Compositor
 
 # Wallpaper
-#nitrogen --restore &
+nitrogen --restore &
 # Bar
-#"$HOME"/.config/polybar/launch.sh &
+"$HOME"/.config/polybar/launch.sh &
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -28,8 +29,7 @@ alias bc='bspc config'
 alias br='bspc rule'
 
 bc border_width 1
-bc window_gap 6
-bc border_radius 0
+bc window_gap 8
 bc focused_border_color "#f7768e"
 bc normal_border_color "#353b45"
 

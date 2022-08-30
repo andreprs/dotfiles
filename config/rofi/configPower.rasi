@@ -13,7 +13,7 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "DeHydration"
+@theme "themes/DeHydration"
 
 window {
     width: 350;
