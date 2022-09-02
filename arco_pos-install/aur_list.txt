@@ -1,0 +1,9 @@
+visual-studio-code-bin
+spotify
+google-chrome
+ttf-ms-fonts
+picom-pijulius-git
+nerd-fonts-complete
+catppuccin-gtk-theme
+archlinux-tweak-tool-git
+pfetch
