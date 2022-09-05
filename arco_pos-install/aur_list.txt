@@ -3,7 +3,11 @@ spotify
 google-chrome
 ttf-ms-fonts
 picom-pijulius-git
-nerd-fonts-complete
-catppuccin-gtk-theme
+nerd-fonts-cascadia-code
+nerd-fonts-fira-code
+nerd-fonts-hack
+nerd-fonts-jetbrains-mono
+nerd-fonts-ubuntu-mono
 archlinux-tweak-tool-git
+write_stylus
 pfetch
