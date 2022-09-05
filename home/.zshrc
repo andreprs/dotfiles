@@ -2,12 +2,16 @@
 export ZSH=$HOME/.oh-my-zsh
 # -----------------------------------------------------------------------------
 #
+# Path
+export PATH=$PATH:~/scripts
+# -----------------------------------------------------------------------------
+#
 # Auto-update
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 20
 # -----------------------------------------------------------------------------
 #
-# Theme
+# Tema
 ZSH_THEME='spaceship'
 # -----------------------------------------------------------------------------
 #
@@ -15,29 +19,32 @@ ZSH_THEME='spaceship'
 CASE_SENSITIVE='true'
 # -----------------------------------------------------------------------------
 #
-# Date format
+# Formato de data
 HIST_STAMPS='dd.mm.yyyy'
 # -----------------------------------------------------------------------------
 #
 # Plugins
-plugins=(git zsh-autosuggestions zsh-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 # -----------------------------------------------------------------------------
 #
-# Language
+# Linguagem
 export LANG=pt_BR.UTF-8
 # -----------------------------------------------------------------------------
 #
-# Apt alias
-alias updg='sudo apt update && sudo apt upgrade'
-alias isnt='sudo apt install'
+# Pacman alias
+alias update='sudo pacman -Syyu'
+alias install='sudo pacman -S'
+alias remove='sudo pacman -R'
+alias search='sudo pacman -Ss'
 # -----------------------------------------------------------------------------
 #
 # Python alias
-alias py='python3.10.5'
+alias py='python'
 alias pinst='pip install'
-alias cvenv='python3.10.5 -m venv venv'
+alias cvenv='python -m venv venv'
+alias acvenv='source venv/bin/lib/activate'
 # -----------------------------------------------------------------------------
 #
 # Git alias
