@@ -6,11 +6,11 @@
 
 # Terminal
 super + Return
-	kitty
+	alacritty
 
 # Gerenciador de arquivos
 super + f
-	kitty ranger
+	alacritty -e ranger
 
 # Web browser
 super + b
@@ -23,6 +23,14 @@ super + c
 # Spotify (player)
 super + p
 	spotify
+
+# Launcher
+super + r
+	rofi -show drun
+
+# Powermenu
+super + F12
+	powermenu
 
 # make sxhkd reload its configuration files:
 super + Escape
