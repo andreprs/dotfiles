@@ -12,7 +12,7 @@ aur_list="$HOME/dotfiles/arco_pos-install/aur_list.txt"
 polybar_dir="$HOME"/.config/polybar
 config_path="$HOME"/dotfiles/config
 home_path="$HOME"/dotfiles/home
-beauty_path="$HOME"/dotifles/beauty
+beauty_path="$HOME"/dotfiles/beauty
 bin_path="$HOME"/dotfiles/bin
 oh_my_zsh="$HOME"/.oh_my_zsh/custom
 
