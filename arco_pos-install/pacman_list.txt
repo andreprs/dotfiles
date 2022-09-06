@@ -56,7 +56,9 @@ pulseaudio-bluetooth
 pavucontrol
 alsa-utils
 alsa-plugins
-blueberry
+bluez
+bluez-utils
+blueman
 mobile-broadband-provider-info
 networkmanager
 networkmanager-applet

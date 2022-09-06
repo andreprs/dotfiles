@@ -106,8 +106,10 @@ clear
 
 # Configurações de sistema
 echo "------ Configurações de sistema ------"
+modprobe stusb
 sudo systemctl enable ly.service
 sudo systemctl enable NetworkManager.service
+sudo systemctl enable bluetooth.service
 sleep 2
 clear
 # -----------------------------------------------------------------------------
