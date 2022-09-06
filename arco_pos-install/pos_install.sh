@@ -7,18 +7,33 @@
 # -----------------------------------------------------------------------------
 #
 # Variaveis
+aur_packages=(
+    "visual-studio-code-bin"
+    "spotify"
+    "google-chrome"
+    "ttf-ms-fonts"
+    "picom-pijulius-git"
+    "nerd-fonts-cascadia-code"
+    "nerd-fonts-fira-code"
+    "nerd-fonts-hack"
+    "nerd-fonts-jetbrains-mono"
+    "nerd-fonts-ubuntu-mono"
+    "archlinux-tweak-tool-git"
+    "write_stylus"
+    "pfetch"
+)
+
 pacman_list="$HOME/dotfiles/arco_pos-install/pacman_list.txt"
-aur_list="$HOME/dotfiles/arco_pos-install/aur_list.txt"
 polybar_dir="$HOME"/.config/polybar
 config_path="$HOME"/dotfiles/config
 home_path="$HOME"/dotfiles/home
 beauty_path="$HOME"/dotfiles/beauty
-bin_path="$HOME"/dotfiles/bin
-oh_my_zsh="$HOME"/.oh_my_zsh/custom
+oh_my_zsh="$HOME"/.oh-my-zsh/custom
+scripts="$HOME"/dotfiles/scripts
 
 # Links
-autosuggestions="https://github.com/zsh-users/zsh-syntax-highlighting.git"
-syntax_high="https://github.com/zsh-users/zsh-autosuggestions.git"
+syntax_high="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+autosuggestions="https://github.com/zsh-users/zsh-autosuggestions.git"
 spaceship="https://github.com/denysdovhan/spaceship-prompt.git"
 # =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 #
@@ -43,17 +58,18 @@ sleep 2
 clear
 echo "------ Instalando pacotes do AUR ------"
 # Instalando pacotes do AUR
-while read -r aur_package
+for package in "${aur_packages[@]}"
 do
-    yay -S "$aur_package"
-done < "$aur_list"
-
+    yay -S "$package"
+done
+clear
 echo "------ Pacotes AUR instalados ------"
 sleep 2
-clear
 # =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
 #
 # Instalando Oh-my-ZSH
+clear
+echo "------ Instalando oh-my-zsh ------"
 curl -L http://install.ohmyz.sh | sh
 echo "------ Oh-my-ZSH instalado com sucesso ------"
 sleep 2
@@ -84,7 +100,7 @@ echo "------ Copiando arquivos ------"
 cp -R "$config_path"/* "$HOME"/.config/
 cp -R "$beauty_path"/fonts/* "$HOME"/.local/share/fonts/
 cp -R "$beauty_path"/wallpapers/* "$HOME"/Imagens/wallpapers/
-cp -R "$bin_path"/* "$HOME"/.local/bin/
+cp -R "$scripts" "$HOME"/
 cp -a "$home_path"/. "$HOME"/
 echo "------ Arquivos de configuração e home copiados ------"
 sleep 2
@@ -113,26 +129,4 @@ sudo systemctl enable bluetooth.service
 sleep 2
 clear
 # -----------------------------------------------------------------------------
-#
-# Reiniciar o sistema 
-echo -n "Reiniciar o sistema? [S/n] "
-select escolha in Sim Nao
-do
-    case $escolha in
-        "Sim")
-            clear
-            echo "--- Reiniciando o sistema ---"
-            sleep 2
-            reboot;;
-        "Nao")
-            clear
-            echo "--- Voltando ao terminal ---"
-            sleep 2
-            break;;
-        *)
-            clear
-            echo "Sem resposta... Voltando ao terminal"
-            sleep 2
-            break;;
-    esac
-done
+echo "------ Reinicie o sistema ------"
