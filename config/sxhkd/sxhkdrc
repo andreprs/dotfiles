@@ -26,7 +26,7 @@ super + p
 
 # Launcher
 super + r
-	rofi -show drun
+	rofi -show drun -theme $HOME/.config/rofi/launcher.rasi
 
 # Powermenu
 super + F12
