@@ -21,17 +21,20 @@ super + c
 	code
 
 # Spotify (player)
-super + p
+super + s
 	spotify
 
 # Launcher
 super + r
-	rofi -show drun -theme $HOME/.config/rofi/launcher.rasi
+	rofi -show drun -theme "$HOME"/.config/rofi/launcher.rasi
 
 # Powermenu
-super + F12
+super + alt + p
 	powermenu
 
+# Wacom tablet
+super + alt + t
+	wacom-tablet
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
