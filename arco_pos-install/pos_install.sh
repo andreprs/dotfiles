@@ -113,8 +113,8 @@ chmod -R +x "$HOME"/.config/bspwm/bspwmrc
 chmod -R +x "$HOME"/.config/sxhkd/sxhkdrc
 chmod -R +x "$HOME"/scripts/*
 chmod -R +x "$polybar_dir"/launch.sh
-chmod -R +x "$polybar_dir"/forest/scripts/*.sh
-chmod -R +x "$polybar_dir"/forest/scripts/checkupdates
+chmod -R +x "$polybar_dir"/scripts/*.sh
+chmod -R +x "$polybar_dir"/scripts/checkupdates
 chmod -R +x "$HOME"/.config/ranger/scope.sh
 echo "------ Permissões realizadas ------"
 sleep 2
