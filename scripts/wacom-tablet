@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# -----------------------------------------------------------------------------
+# Descrição: script para configurar a mesa digitalizadora One By Wacom CTL472
+# -----------------------------------------------------------------------------
+
+# Id do tablet. Altere para o id do seu tablet;
+# Comando: xsetwacom list devices (e identifique seu tablet)
+# É possível usar o id numérico ou string
+id = "Wacom One by Wacom S Pen stylus"
+
+# Altere para que o tablet funcione no seu monitor de preferência
+# Comando: xrandr
+# A resolução desse monitor é importante
+monitor = "HDMI1"
+
+# Area do tablet;
+# Comando: xsetwacom get ID Area
+# Altere o terceiro valor para a saída do comando acima
+# Altere o quarto valor para o resultado inteiro da expressão abaixo
+# Expressão: largura_tablet * (largura_monitor / altura_monitor)
+tablet_area = "0 0 15200 XXXX"
+
+# Curva de pressão
+# Referência: https://linuxwacom.github.io/bezier.html
+pressure = "0 0 100 20"
+# -----------------------------------------------------------------------------
+xsetwacom set "$id" MapToOutput "$monitor"
+xsetwacom set "$id" Area "$tablet_area"
+xsetwacom set "$id" PressureCurve "$pressure"
