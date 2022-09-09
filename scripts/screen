@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# -----------------------------------------------------------------------------
+# Descrição: configuração das resoluções de telas.
+# -----------------------------------------------------------------------------
+external="HDMI1"
+resolution_external="1440x900"
+internal="eDP1"
+resolution_internal="1366x768"
+
+dual_monitor() {
+    xrandr --output "$external" --primary --mode "$resolution_external" --rotate normal \
+    --output "$internal" --mode "$resolution_internal" --rotate normal --left-of "$external"
+
+    bspc monitor "$external" -d 1 2 3 4
+    bspc monitor "$internal" -d 5 6 7 8
+}
+
+single_monitor() {
+    xrandr --output "internal" --primary --mode "$resolution_external" --rotate normal
+
+    bspc monitor "$internal" -d 1 2 3 4 5 6 7 8
+}
+
+if [[ $(xrandr -q | grep "$external connected")]]; then
+    dual_monitor
+else
+    single_monitor
+fi
