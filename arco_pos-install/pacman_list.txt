@@ -130,3 +130,5 @@ otf-font-awesome
 ttf-font-awesome
 arandr
 alacritty
+xournalpp
+qogir-gtk-theme-git
