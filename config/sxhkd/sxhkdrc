@@ -29,11 +29,11 @@ super + r
 	rofi -show drun -theme "$HOME"/.config/rofi/launcher.rasi
 
 # Powermenu
-super + alt + p
+super + alt + {p}
 	powermenu
 
 # Wacom tablet
-super + alt + t
+super + alt + {t}
 	wacom-tablet
 # make sxhkd reload its configuration files:
 super + Escape
