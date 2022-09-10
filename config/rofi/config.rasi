@@ -12,7 +12,7 @@ configuration {
   bg: #1E1D2FFF;
   bg-alt: #282839FF;
 
-  fg: #D9E0EEFF;
+  fg: #eebebe;
   fg-alt: #D9E0EEFF;
 
   background-color: @bg;
